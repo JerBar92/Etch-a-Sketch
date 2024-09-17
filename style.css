@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Jersey+20&family=VT323&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   background-image: url(img/neon-grid-background_53876-91657.jpg);
 }
@@ -11,16 +15,23 @@ h1 {
   text-shadow: -4px 4px #ef3550, -8px 8px #f48fb1, -12px 12px #7e57c2,
     -16px 16px #2196f3, -20px 20px #26c6da, -24px 24px #43a047,
     -28px 28px #eeff41, -32px 32px #f9a825, -36px 36px #ff5722;
+  margin-bottom: 50px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
 }
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 352px;
+  width: 600px;
   margin: auto;
 }
 
 .grid {
-  border: solid 1px white;
-  height: 20px;
-  width: 20px;
+  border: solid 1px rgb(160, 27, 27);
+  height: 35.5px;
+  width: 35.5px;
 }
