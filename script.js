@@ -15,14 +15,13 @@ size?.addEventListener("click", () => {
 function createGrid(square) {
   let gridSize = square;
   let totalSize = gridSize * gridSize;
-  let width = (960 - gridSize * 2) / gridSize;
-  let height = (960 - gridSize * 2) / gridSize;
+  let squareSize = 960 / gridSize;
   for (let i = 0; i < totalSize; i++) {
     let randomColor = Math.floor(Math.random() * 0xffffff).toString(16);
     const newDiv = document.createElement("div");
     newDiv.setAttribute("class", "grid");
-    newDiv.style.minHeight = `${width}px`;
-    newDiv.style.minWidth = `${height}px`;
+    newDiv.style.minHeight = `${squareSize}px`;
+    newDiv.style.minWidth = `${squareSize}px`;
     container?.appendChild(newDiv);
     newDiv.addEventListener("mousedown", () => {
       newDiv.style.backgroundColor = `#${randomColor}`;
