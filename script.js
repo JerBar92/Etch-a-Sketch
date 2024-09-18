@@ -1,30 +1,31 @@
 const container = document.querySelector(".container");
 const size = document.querySelector(".size");
 
+createGrid(16);
+
 size?.addEventListener("click", () => {
-  const choice = Number(prompt("Chose a number of square between 16 and 100"));
-  const width = (600 - choice * 2) / choice;
-  const height = (600 - choice * 2) / choice;
-  const nbrSquare = choice * choice;
-  container?.replaceChildren();
-  for (let i = 0; i < nbrSquare; i++) {
-    const newDiv = document.createElement("div");
-    newDiv.setAttribute("class", "grid");
-    newDiv.style.height = `${width}px`;
-    newDiv.style.width = `${height}px`;
-    container?.appendChild(newDiv);
+  let size = Number(prompt("Chose a number of square between 16 and 100"));
+  if (size > 100) {
+    prompt("The number cannot be greater than 100");
   }
+  container?.replaceChildren();
+  createGrid(size);
 });
 
-for (let i = 0; i < 256; i++) {
-  const newDiv = document.createElement("div");
-  newDiv.setAttribute("class", "grid");
-  container?.appendChild(newDiv);
-}
-
-const grid = document.querySelectorAll(".grid");
-for (let i = 0; i < grid.length; i++) {
-  grid[i].addEventListener("mouseover", () => {
-    grid[i].setAttribute("style", "background: red;");
-  });
+function createGrid(square) {
+  let gridSize = square;
+  let totalSize = gridSize * gridSize;
+  let width = (600 - gridSize * 2) / gridSize;
+  let height = (600 - gridSize * 2) / gridSize;
+  for (let i = 0; i < totalSize; i++) {
+    let randomColor = Math.floor(Math.random() * 0xffffff).toString(16);
+    const newDiv = document.createElement("div");
+    newDiv.setAttribute("class", "grid");
+    newDiv.style.minHeight = `${width}px`;
+    newDiv.style.minWidth = `${height}px`;
+    container?.appendChild(newDiv);
+    newDiv.addEventListener("mouseover", () => {
+      newDiv.style.backgroundColor = `#${randomColor}`;
+    });
+  }
 }
